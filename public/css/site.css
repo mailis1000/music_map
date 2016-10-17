@@ -1,0 +1,34 @@
+body{
+    background-color: antiquewhite;
+}
+#menubar{
+    border-radius: 5px;
+    border: 1px solid grey;
+    background-color: darkgrey;
+    text-transform: uppercase;
+    font-weight: bold;
+
+}
+#menubar a{
+    text-decoration: none;
+    color: antiquewhite;
+    padding: 20px;
+}
+#menubar ul li{
+    display: inline;
+}
+#footer{
+    border-radius: 5px;
+    border: 1px solid grey;
+    background-color: darkgrey;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: antiquewhite;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+#userList th, #userList td, #userList{
+    border: 1px solid grey;
+}
