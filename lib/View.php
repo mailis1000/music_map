@@ -13,10 +13,6 @@ class View
         } else {
             require 'view/'.$name.'.php';
         }
-
-
-
         require 'view/footer.php';
     }
-
 }
