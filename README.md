@@ -1,22 +1,2 @@
-# Music map
+# Music map version 1.0
 
-CREATE DATABASE IF NOT EXISTS music1 CHARACTER SET utf8 COLLATE utf8_bin;
-
-USE music1;
-
-CREATE TABLE IF NOT EXISTS music1.login(
-  user_id INT(11) AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(25) UNIQUE NOT NULL,
-  password VARCHAR(150) NOT NULL,
-  salt VARCHAR(150) NOT NULL,
-  email VARCHAR(50) NOT NULL,
-  reg_date TIMESTAMP);
-
-CREATE TABLE IF NOT EXISTS music1.bands(
-  band_id INT(11) AUTO_INCREMENT PRIMARY KEY,
-  bandname VARCHAR(75) UNIQUE,
-  genre VARCHAR(75) NOT NULL,
-  country VARCHAR(75) UNIQUE NOT NULL
-);
-
-COMMIT;
