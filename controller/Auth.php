@@ -16,6 +16,7 @@ class Auth extends Controller
         $this->view->render('auth/index');
     }
 
+    //sisse logimine
     public function auth(){
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -29,6 +30,8 @@ class Auth extends Controller
             $this->view->render('auth/index');
         }
     }
+
+    //välja logimine
     public function logout(){
         unset($_SESSION['login']);
         session_destroy();
@@ -36,6 +39,7 @@ class Auth extends Controller
         exit;
     }
 
+    //uus kasutaja
     public function addnew(){
         $username = $_POST['username'];
         $password = $_POST['password'];

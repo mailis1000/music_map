@@ -18,6 +18,7 @@ class Dashboard extends Controller
         }
     }
 
+    //toob bändilisti dashboardile
     public function index()
     {
         $data = $this->model->getBandList();
@@ -25,6 +26,7 @@ class Dashboard extends Controller
         $this->view->render('dashboard/index');
     }
 
+    //võtab data, suunab saveBandi
     public function save(){
         $data=array(
             "bandname" =>$_POST['bandname'],
@@ -40,6 +42,8 @@ class Dashboard extends Controller
             exit;
         }
     }
+
+
     public function view($bandname){
         $data = $this->model->findBand($bandname);
         $this->view->msg = $data;

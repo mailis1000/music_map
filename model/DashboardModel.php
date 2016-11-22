@@ -39,7 +39,7 @@ VALUES(:bandname, :genre, :country)"
         return $statement->execute($band);
     }
 
-    public function findBand($name=''){
+    /*public function findBand($name=''){
         $statement = $this->db->
         prepare("SELECT * FROM bands WHERE bandname=Placebo");
         $statement->bindValue(1, $bandname);
@@ -50,5 +50,5 @@ VALUES(:bandname, :genre, :country)"
         $data = $statement->fetchAll();
 
         return $data;
-    }
+    }*/
 }

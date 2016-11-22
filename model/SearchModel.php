@@ -8,6 +8,8 @@ class SearchModel extends Model
         parent::__construct();
     }
 
+    //siin otsib bändinime järgi
+    //siin saab teha sqli muudatused jms, et ta otsiks ka muid asju kui ainult bändi nime
     public function findBand($bandname){
 
         $statement = $this->db->

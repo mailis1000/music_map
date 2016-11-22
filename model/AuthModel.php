@@ -49,7 +49,7 @@ VALUES(:username, :password, :email, :salt, :reg_date)"
         return substr(str_shuffle('kjgdhseloiutyw3498theakfjhseaoituwyehfgikjawhf'),0,$len);
     }
 
-    public function findBand($bandname=''){
+    /*public function findBand($bandname=''){
         $statement = $this->db->
         prepare("SELECT * FROM bands WHERE bandname=?");
         $statement->bindValue(1, $bandname);
@@ -60,6 +60,6 @@ VALUES(:username, :password, :email, :salt, :reg_date)"
         $data = $statement->fetchAll();
 
         return $data;
-    }
+    }*/
 
 }
