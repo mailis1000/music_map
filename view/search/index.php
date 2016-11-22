@@ -1,13 +1,9 @@
 <!DOCTYPE>
 <html>
-<head>
-    <meta  charset="utf-8">
-    <title>Search  bands, genres, countries</title>
-</head>
-<p><body>
+<p>
     <h3> Search for bands, genres and countries </h3>
-<p>Enter band, genre or countrey</p>
-<form  method="post" action="search.php?go"  id="searchform">
+<p>Enter band, genre or country</p>
+<form title="searchform" method="post" action="search.php?go"  id="searchform">
     <input  type="text" name="name">
     <input  type="submit" name="submit" value="Search">
 </form>
@@ -22,7 +18,7 @@ if(isset($_POST['submit'])){
                 die('mysqli connection failed: ' . mysql_error());
             }
             //-query  the database table
-            $mysql="SELECT  bandname, genre, country FROM bands WHERE bandname LIKE '%" . $name . "%'OR genre LIKE '%" . $name ."%' OR country LIKE '%" . $name ."%'";
+            $mysql="SELECT bandname, genre, country FROM bands WHERE bandname LIKE '%" . $name . "%'OR genre LIKE '%" . $name ."%' OR country LIKE '%" . $name ."%'";
             //-run  the query against the mysql query function
             $result = $db->query($mysql);
 
@@ -45,6 +41,3 @@ if(isset($_POST['submit'])){
     }
 }
 ?>
-</body>
-</html>
-</p>
