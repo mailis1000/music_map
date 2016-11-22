@@ -27,3 +27,5 @@
 </form>
 
 <hr/>
+
+<!--<li><a href="<?php echo BASE; ?>search/find">Search</a></li>-->
