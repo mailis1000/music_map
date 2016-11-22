@@ -33,21 +33,12 @@ if(isset($_POST['submit'])){
                 $genre=$row['genre'];
                 $countrey=$row['country'];
                 //$user_id=$row['user_id'];
-
-
-
                 //-display the result of the array
-
                 echo "Name of the band: ".$bandname1. '<br>';
                 echo "Genre: ".$genre. '<br>';
                 echo "Country: ".$countrey. '<br>';
             }
-
-
         }
-
-
-
         else{
             echo  "<p>Please enter a search query</p>";
         }
