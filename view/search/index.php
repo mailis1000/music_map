@@ -1,31 +1,59 @@
-
-<form action="<?php echo BASE;?>search/find" method="POST">
-    <table id="bandList">
-        <thead>
-        <tr>
-            <th>Bandname</th>
-            <th>Genre</th>
-            <th>Country</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($this->msg as $data): ?>
-            <tr>
-                <td><?php echo $data['bandname'] ?></td>
-                <td><?php echo $data['genre'] ?></td>
-                <td><?php echo $data['country'] ?></td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-        <tfoot>
-        <tr>
-            <td><input type="text" name="bandname"/></td>
-            <td><input type="text" name="genre"/></td>
-            <td><input type="text" name="country"/></td>
-        </tr>
-        </tfoot>
-    </table>
-    <button type="submit">Search</button>
+<!DOCTYPE>
+<html>
+<head>
+    <meta  charset="utf-8">
+    <title>Search  bands, genres, countries</title>
+</head>
+<p><body>
+    <h3> Search for bands, genres and countries </h3>
+<p>Enter band, genre or countrey</p>
+<form  method="post" action="search.php?go"  id="searchform">
+    <input  type="text" name="name">
+    <input  type="submit" name="submit" value="Search">
 </form>
+<?php
+if(isset($_POST['submit'])){
+    if(isset($_GET['go'])){
+        if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){
+            $name=$_POST['name'];
+            //connect  to the database
+            $db= mysqli_connect("localhost", "root",  "mysql", 'music1');
+            if (!$db) {
+                die('mysqli connection failed: ' . mysql_error());
+            }
+            //-query  the database table
+            $mysql="SELECT  bandname, genre, country FROM bands WHERE bandname LIKE '%" . $name . "%'OR genre LIKE '%" . $name ."%' OR country LIKE '%" . $name ."%'";
+            //-run  the query against the mysql query function
+            $result = $db->query($mysql);
 
-<hr/>
+            //-create  while loop and loop through result set
+            while($row=mysqli_fetch_assoc($result)){
+                // var_dump($row);
+                $bandname1=$row['bandname'];
+                $genre=$row['genre'];
+                $countrey=$row['country'];
+                //$user_id=$row['user_id'];
+
+
+
+                //-display the result of the array
+
+                echo "Name of the band: ".$bandname1. '<br>';
+                echo "Genre: ".$genre. '<br>';
+                echo "Country: ".$countrey. '<br>';
+            }
+
+
+        }
+
+
+
+        else{
+            echo  "<p>Please enter a search query</p>";
+        }
+    }
+}
+?>
+</body>
+</html>
+</p>
